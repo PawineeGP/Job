@@ -51,7 +51,7 @@
                                 <td>
                                     
                                     <a href="" class="btn btn-warning" data-toggle="modal" data-target="#Modal{{$user->id}}">ดูข้อมูล</a>                           
-                                    <a href="" class="btn btn-success">แก้ไขข้อมูล</a>
+                                    <a href="{{route('user-profile.edit',$user->id)}}" class="btn btn-success">แก้ไขข้อมูล</a>
                                     
                                     <form id="delete-form-{{ $user->id }}" 
                                         action="{{ route('user-profile.destroy',$user->id) }}" method="post" style="display:none">
