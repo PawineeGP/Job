@@ -83,13 +83,17 @@
                 <a href="{{route('job.index')}}" class="btn btn-outline-info">ประกาศงาน</a>
                 <a href="{{url('/job-blog')}}" class="btn btn-outline-secondary">งานที่ประกาศ</a>
                 <a href="{{url('/user-job-blog')}}" class="btn btn-outline-secondary">ประกาศคน</a>
-                @if(Auth::user()->status == 0)
+                @guest
+                    @else
+                  
+                    @if(Auth::user()->status == 0)
                     <a href="{{url('/admin-dasboard')}}" class="btn btn-outline-secondary">Dashborad</a>
-                 @endif
+                    @endif
+                 @endguest
                 </div>
                 <br>
                 <div class="links">
-                    <p >จำนวนของที่ถูกประกาศ :  <b style="font-weight: bold;"> {{ $jobs }} </b> งาน</p><span class="oi oi-list-rich"></span>
+                    <p >จำนวนของงานที่ถูกประกาศ :  <b style="font-weight: bold;"> {{ $jobs }} </b> งาน</p><span class="oi oi-list-rich"></span>
                 </div>
             </div>
         </div>

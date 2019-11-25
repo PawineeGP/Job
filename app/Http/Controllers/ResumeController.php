@@ -48,20 +48,26 @@ class ResumeController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
+        $status;
+
+        if($request->status != null){
+            $status = 1;
+        }else{
+            $status = 0;
+        }
         $resumes = new resume();
         $resumes->user_id = Auth::user()->id;
         $resumes->name =$request->name;
+        $resumes->email =$request->email;
+        $resumes->sex =$request->sex;
+        $resumes->nationality =$request->nationality;
+       
+        $resumes->attention =$request->attention;
+        $resumes->education =$request->education;
         $resumes->experience = $request->experience;
         $resumes->skill = $request->skill;
-    
-        if ($request->hasFile('file_resume')) {
-            $file = $request->file('file_resume');
-            $name = $file->getClientOriginalName();
-            $destinationPath = public_path('/uploads/resume');
-            $filePath = $destinationPath. "/".  $name;
-            $file->move($destinationPath, $name);
-            $resumes->file_url = $name;
-        }   
+        $resumes->status = $request->status;     
         $resumes->save();
         $resumes->categories()->sync($request->categories);
         return redirect(route('resume.index'));
@@ -101,23 +107,26 @@ class ResumeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $status;
+
+        if($request->status != null){
+            $status = 1;
+        }else{
+            $status = 0;
+        }
+
         $resumes = resume::find($id);
         $resumes->user_id = Auth::user()->id;
         $resumes->name =$request->name;
+        $resumes->sex =$request->sex;
+        $resumes->email =$request->email;
+        $resumes->nationality =$request->nationality;
+        $resumes->attention =$request->attention;
+        $resumes->education =$request->education;
         $resumes->experience = $request->experience;
         $resumes->skill = $request->skill;
-        if($request->file_resume != null){
-            if ($request->hasFile('file_resume')) {
-                $file = $request->file('file_resume');
-                $name = $file->getClientOriginalName();
-                $destinationPath = public_path('/uploads/resume');
-                $filePath = $destinationPath. "/".  $name;
-                $file->move($destinationPath, $name);
-                $resumes->file_url = $name;
-            }              
-        }else{
-            $resumes->file_url = $request->filejob;
-        }
+        $resumes->status = $request->status;
+     
         $resumes->categories()->sync($request->categories);
         $resumes->save();        
         return redirect(route('resume.index'));

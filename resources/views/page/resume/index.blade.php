@@ -48,6 +48,7 @@
                         
                             <td class="text-nowrap">
                             <!-- show data  -->
+                            <a href="{{url('/downloadPDF/'.$resume->id)}}" class="btn btn-info">ดาวน์โหลด</a>
                             <a href="" class="btn btn-warning" data-toggle="modal" data-target="#Modal{{$resume->id}}">ดูข้อมูล</a>                            
                             <a href="{{route('resume.edit',$resume->id)}}" class="btn btn-success">แก้ไขข้อมูล</a>
                             <form id="delete-form-{{ $resume->id }}" 
@@ -77,8 +78,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body" >
-                                                    <ol style="color:#000">ชื่อ - นามสกุล :  {{$resume->name}}</ol>
-                                                    <ol style="color:#000">file :  <a href="{{asset('uploads/resume/'.$resume->file_url )}}">{{ $resume->file_url }}</a></ol>
+                                                    <ol style="color:#000">ชื่อ - นามสกุล :  {{$resume->name}}</ol>                                                   
                                                     <ol style="color:#000">ประสบการณ์ :  {{$resume->experience}}</ol>
                                                     <ol style="color:#000">ทักษะ :  {{$resume->skill}}</ol>
                                                 </div>

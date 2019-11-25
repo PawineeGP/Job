@@ -17,9 +17,14 @@ class CreateResumesTable extends Migration
             $table->increments('id');
             $table->string('user_id');
             $table->string('name');
-            $table->text('experience');
-            $table->text('skill');
-            $table->string('file_url')->nullable();;
+            $table->string('email');
+            $table->string('sex');
+            $table->text('education')->nullable();
+            $table->text('experience')->nullable();
+            $table->text('skill')->nullable();
+            $table->boolean('status')->default(1);
+            $table->string('nationality')->nullable();
+            $table->string('attention')->nullable();
             $table->timestamps();
         });
     }

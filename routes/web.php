@@ -1,5 +1,5 @@
 <?php
-
+use App\Models\job;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,8 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/pdf','DynamicPDFController@index');
 
-Route::get('/','HomeController@welcome');
+Route::get('/downloadPDF/{id}','DynamicPDFController@downloadPDF');
+
+Route::get('/', function(){
+    $jobs =  job::where('status',1)->orderBy('created_at','DESC')->get()->count();
+    return view('welcome',compact('jobs'));
+});
 
 Auth::routes();
 

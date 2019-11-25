@@ -43,19 +43,14 @@ class HomeController extends Controller
         
         return view('user.job-detail',compact('job','comments','users'));
     }
-
-    public function welcome(){
-        $jobs =  job::where('status',1)->orderBy('created_at','DESC')->get()->count();
-        return view('welcome',compact('jobs'));
-
-    }
+  
 
     public function report(){
         $reports = report::where('user_id',Auth::user()->id)->orderBy('created_at','DESC')->paginate(20);
         return view('user.job-report',compact('reports'));
     }
 
-    public function Jobuser(){
+    public function Jobuser(){            
         $user_jobs = user_job::where('status',1)->orderBy('created_at','DESC')->paginate(20);
         return view('user.user_job_blog',compact('user_jobs'));
     }
