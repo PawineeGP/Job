@@ -64,7 +64,7 @@ class JobsController extends Controller
         $jobs->experience =$request->experience;
         $jobs->skill =$request->skill;
         $jobs->status = $status;
-
+        $jobs->address =$request->address;
     
             if ($request->hasFile('filejob')) {
                 $file = $request->file('filejob');
@@ -127,6 +127,7 @@ class JobsController extends Controller
         $jobs->description =$request->description;
         $jobs->experience =$request->experience;
         $jobs->skill =$request->skill;
+        $jobs->address =$request->address;
         $jobs->status = $status;
 
         if($request->filejob != null){

@@ -35,6 +35,10 @@
         <label for="exampleFormControlTextarea3">ทักษะในการทำงาน : </label>
         <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" name="skill" required></textarea>
       </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea3">ข้อมูลติด่อกลับ,ที่อยู่,ที่ตั้ง: </label>
+        <textarea class="form-control" id="exampleFormControlTextarea3" rows="5" name="address" required></textarea>
+      </div>
 
       <div class="form-group">
         <label for="exampleFormControlFile1">อัปโหลดไฟล์ : รูปภาพประกอบ,โลโก้บริษัท</label>

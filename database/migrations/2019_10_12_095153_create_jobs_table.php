@@ -19,6 +19,7 @@ class CreateJobsTable extends Migration
             $table->string('title');
             $table->text('description');           
             $table->text('experience');
+            $table->text('address');
             $table->text('skill');
             $table->string('img_url')->nullable();
             $table->boolean('status')->default(1);
