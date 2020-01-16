@@ -87,7 +87,7 @@
                     @else
                   
                     @if(Auth::user()->status == 0)
-                    <a href="{{url('/admin-dasboard')}}" class="btn btn-outline-secondary">Dashborads</a>
+                    <a href="{{url('/admin-dasboard')}}" class="btn btn-outline-secondary">Dashborad</a>
                     @endif
                  @endguest
                 </div>
